@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Details;
+use App\Models\Detail;
 
 
 class DetailController extends Controller
@@ -12,15 +12,15 @@ class DetailController extends Controller
         return view('donasi', [
             "title" => "Donasi",
             "theme" => $_COOKIE["theme"],
-            "data" => Details::all()
+            "data" => Detail::all()
         ]);
     }
 
-    public function show($slug){
+    public function show(Detail $detail){
         return view('detail', [
             "title" => "Detail Page",
             "theme" => $_COOKIE["theme"],
-            "data" => Details::find($slug)
+            "data" => $detail
         ]);
     }
 }

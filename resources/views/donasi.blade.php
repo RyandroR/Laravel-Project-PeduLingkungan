@@ -6,8 +6,8 @@
     <div class="container text-center">
         <div class="row">
           <div class="col-sm-3">
-            <a href="/donasi/{{ $item['slug'] }}">
-                {{ $item['waktu']}}
+            <a href="/donasi/{{ $item->slug }}">
+                {{ $item->Berat}}
             </a>
           </div>
           <div class="col-sm-9">

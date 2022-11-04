@@ -46,4 +46,4 @@ Route::get('/map', function () {
     ]);
 });
 
-route::get('/donasi/{slug}', [DetailController::class, 'show']);
+route::get('/donasi/{detai:slug}', [DetailController::class, 'show']);
