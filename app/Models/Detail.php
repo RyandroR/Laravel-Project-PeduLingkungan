@@ -9,7 +9,14 @@ class Detail extends Model
 {
     use HasFactory;
     
-    protected $guarded = [
-        'Id'
+    protected $fillable = [
+        'IdUser',
+        'Berat',
+        'slug'
     ];
+
+    public function User(){
+        return $this->belongsTo(User::class, 'IdUser');
+    }
 }
+

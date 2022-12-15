@@ -39,11 +39,12 @@ Route::get('/map', function () {
  
 Route::get('/donasi', [DetailController::class, 'index']);
 
-Route::get('/map', function () {
-    return view('map', [
-        "title" => "Map",
-        "theme" => $_COOKIE["theme"]
-    ]);
+route::get('/donasi/{detail:slug}', [DetailController::class, 'show']);
+
+/*
+route::get('/user/{user:slug}', function(User $user){
+    return view('user')
 });
 
-route::get('/donasi/{detai:slug}', [DetailController::class, 'show']);
+Route::redirect("/h","/hr")
+*/

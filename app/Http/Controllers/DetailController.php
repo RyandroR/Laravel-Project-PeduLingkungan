@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Detail;
-
+use Cookie;
 
 class DetailController extends Controller
 {
