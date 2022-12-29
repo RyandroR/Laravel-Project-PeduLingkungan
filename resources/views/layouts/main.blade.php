@@ -20,7 +20,7 @@
             <div class="logo">
               PeduLingkungan
             </div>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav align-center">
               <li class="nav-item">
                 <a class="nav-link {{ $title == 'Home' ? 'active' : '' }}" href="/">Home</a>
               </li>
@@ -34,6 +34,9 @@
                 <a class="nav-link {{ $title == 'Donasi' ? 'active' : '' }}" href="/donasi">Donasi</a>
               </li>
               <li id="theme-toggle" class="icon-{{ $theme == 'dark' ? 'sun' : 'moon' }}">test</li>
+              <li class="nav-item">
+                <a class="nav-link {{ $title == 'Login' ? 'active' : '' }}" href="/login">Login</a>
+              </li>
             </ul>
           </div>
       </nav>

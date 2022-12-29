@@ -2,7 +2,9 @@
 
 use App\Models\Details;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DetailController;
+use App\Http\Controllers\RegisterController;
 
 
 /*
@@ -19,7 +21,7 @@ use App\Http\Controllers\DetailController;
 Route::get('/', function () {
     return view('home', [
         "title" => "Home",
-        "theme" => $_COOKIE["theme"]
+        "theme" => isset($_COOKIE["theme"])
     ]);
 });
 
@@ -41,6 +43,10 @@ Route::get('/donasi', [DetailController::class, 'index']);
 
 route::get('/donasi/{detail:slug}', [DetailController::class, 'show']);
 
+Route::get('/login', [LoginController::class, 'index']);
+
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
 /*
 route::get('/user/{user:slug}', function(User $user){
     return view('user')
