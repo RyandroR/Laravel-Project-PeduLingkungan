@@ -21,8 +21,8 @@
         </div>
         <div class="form-floating">
           email
-          <input type="email" name="email" class="form-control @error('email') 
-          is-invalid @enderror" id="floatingInput" placeholder="name@example.com"
+          <input type="email" name="email" 
+          class="form-control @error('email') is-invalid @enderror" id="floatingInput" placeholder="name@example.com"
           value="{{ old('email') }}">
           @error('email')
           <div class="invalid-feedback">
@@ -39,8 +39,7 @@
           </div>
           @enderror
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        <a href="/register">Sign-up</a>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
       </form>
     </main>
   </div>

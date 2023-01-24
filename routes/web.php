@@ -25,25 +25,13 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/about', function () {
-    return view('about', [
-        "title" => "About",
-        "theme" => $_COOKIE["theme"]
-    ]);
-});
-
-Route::get('/map', function () {
-    return view('map', [
-        "title" => "Map",
-        "theme" => $_COOKIE["theme"]
-    ]);
-});
  
 Route::get('/donasi', [DetailController::class, 'index']);
 
 route::get('/donasi/{detail:slug}', [DetailController::class, 'show']);
 
 Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);

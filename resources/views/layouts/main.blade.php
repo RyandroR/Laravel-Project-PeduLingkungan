@@ -25,12 +25,6 @@
                 <a class="nav-link {{ $title == 'Home' ? 'active' : '' }}" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ $title == 'About' ? 'active' : '' }}" href="/about">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link {{ $title == 'Map' ? 'active' : '' }}" href="/map">Map</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link {{ $title == 'Donasi' ? 'active' : '' }}" href="/donasi">Donasi</a>
               </li>
               <li id="theme-toggle" class="icon-{{ $theme == 'dark' ? 'sun' : 'moon' }}">test</li>
