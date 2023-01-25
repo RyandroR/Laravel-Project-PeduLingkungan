@@ -29,16 +29,16 @@ class AppServiceProvider extends ServiceProvider
             if ($theme != 'dark' && $theme != 'light') {
                 $theme = 'light';
             }
-        
+
             $view->with('theme', $theme);
         });
 
         Gate::define('admin', function(User $user){
-            return $user->role = 1;
+            return $user->isAdmin == 1;
         });
 
         Gate::define('user', function(User $user){
-            return $user->role = 0;
+            return $user->isAdmin == 0;
         });
     }
 }
