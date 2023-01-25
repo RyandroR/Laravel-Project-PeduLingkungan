@@ -4,8 +4,9 @@
     <div class="py-5">
         <div class="container">
             <div class="row">
+                @foreach ($items as $item)
                 <div class="col-md-3">
-                    @foreach ($items as $item)
+
                         <div class="card">
                             <img width="200px" height="200px" src="{{ asset('storage/app/post-images' . $item->image) }}" alt="">
                             <div class="card-body">
@@ -13,11 +14,13 @@
                                 <p class="h6" name="description">{{ $item->description }}</p>
                                 <p class="h6" name="price">{{ $item->price }}</p>
                                 <p class="h6" name="stock">{{ $item->stock }}</p>
+                                <button type="button" class="btn btn-primary">Purchase</button>
                             </div>
                         </div>
-                    @endforeach
+
 
                 </div>
+                 @endforeach
             </div>
         </div>
 
