@@ -30,7 +30,7 @@ Route::get('/', function () {
 
 
 route::get('/donasi/{detail:slug}', [DetailController::class, 'show']);
-Route::get('/shop', [ItemDetailController::class, 'index']);
+Route::get('/shop', [ItemDetailController::class, 'index'])->middleware('auth');
 
 Route::get('/donasi', [DonationController::class, 'index'])->middleware('auth');
 Route::post('/donasi', [DonationController::class, 'store']);
