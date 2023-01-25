@@ -13,6 +13,7 @@ class DonationController extends Controller
     }
 
     public function store(Request $request){
+
         $validated = $request->validate([
             'user_id' => ['required'],
             'weight' => ['required','gt:0'],
@@ -26,6 +27,7 @@ class DonationController extends Controller
         $request->file('image')->store('post-images');
 
         Detail::create($validated);
+
         $request->session()->flash('success', 'Thank You for your donation');
         return redirect('/');
     }

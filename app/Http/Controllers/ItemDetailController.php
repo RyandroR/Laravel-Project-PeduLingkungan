@@ -15,7 +15,10 @@ class ItemDetailController extends Controller
      */
     public function index()
     {
-        //
+        $itemDetail = ItemDetail::all();
+        return view('shop', ['items' => $itemDetail,
+        'title'=>'shop'
+    ]);
     }
 
     /**
@@ -23,9 +26,21 @@ class ItemDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $req)
     {
-        //
+        $file = $req ->file('post-images');
+        Storage::putFileAs('public/post-images', $file, $imageName);
+        $imageName = 'post-images/'.$imageName;
+
+        $itemdetail = new ItemDetail();
+        $itemDetail->description = $req->description;
+        $itemDetail->price = $req->price;
+        $itemDetail->name = $req->name;
+        $itemDetail->name = $req->name;
+
+        $itemDetail->save();
+
+        return redirect()->back();
     }
 
     /**

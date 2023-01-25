@@ -15,8 +15,8 @@ class CreateDetailsTable extends Migration
     {
         Schema::create('details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->default('0');
-            $table->float('weight')->default('0');
+            $table->integer('user_id')->default('0');
+            $table->integer('weight')->default('0');
             $table->string('image')->nullable();
             $table->string('location')->nullable();
             $table->timestamps();

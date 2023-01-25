@@ -10,8 +10,7 @@ class RegisterController extends Controller
     //
     public function index(){
         return view('register.index', [
-            "title" => "Register",
-            "theme" => $_COOKIE["theme"]
+            "title" => "Register"
         ]);
     }
 
