@@ -7,7 +7,6 @@
     <main class="form-signin">
       <form action="/register" method="post">
         @csrf
-        <small>GRAPHIC</small> dsign is my <small>passion</small>
         <div class="form-floating">
           Name
           <input type="name" name="name" class="form-control @error('name') 

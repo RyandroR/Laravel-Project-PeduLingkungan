@@ -1,119 +1,63 @@
 @extends('layouts.main')
 
-<link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
-
 @section('container')
-
-<script language="JavaScript" src="https://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
-<script language="JavaScript" src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js" type="text/javascript"></script>
-<script language="JavaScript" src="https://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.css">
-<body>
-<div class="container">
-	<div class="row">
-		<h2 class="text-center">Bootstrap styling for Datatable</h2>
-	</div>
-        <div class="row">
-            <div class="col-md-12">
-				<table id="datatable" class="table table-bordered" cellspacing="0" width="100%">
-    				<thead>
-						<tr>
-							<th>Name</th>
-							<th>Position</th>
-							<th>Office</th>
-							<th>Age</th>
-							<th>Start date</th>
-							<th>Salary</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-						</tr>
-					</thead>
-					<tfoot>
-						<tr>
-							<th>Name</th>
-							<th>Position</th>
-							<th>Office</th>
-							<th>Age</th>
-							<th>Start date</th>
-							<th>Salary</th>
-                             <th>Edit</th>
-                                 <th>Delete</th>
-						</tr>
-					</tfoot>
-					<tbody>
-						@foreach ($data as $detail)
-						<tr>
-							<td>{{ $detail->Berat }}</td>
-							<td>{{ $detail->Berat }}</td>
-							<td>{{ $detail->Berat }}</td>
-							<td>{{ $detail->Berat }}</td>
-							<td>{{ $detail->Berat }}</td>
-							<td>{{ $detail->Berat }}</td>
-                            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-    						<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-						</tr>
-						@endforeach
-					</tbody>
-				</table>
-		</div>
-	</div>
-</div>
-
-<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-      <div class="modal-dialog">
-    <div class="modal-content">
-          <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
-      </div>
-          <div class="modal-body">
-          <div class="form-group">
-        <input class="form-control " type="text" placeholder="Tiger Nixon">
+    Lakukan Donasi
+    <form action="/additem" method="post" enctype="multipart/form-data">
+      @csrf
+      <div class="form-floating">
+        Image
+        <input type="file" name="image" class="form-control @error('image') 
+        is-invalid @enderror" id="floatingInput"
+        value="{{ old('image') }}">
+        @error('image')
+        <div class="invalid-feedback">
+          {{ $message }}
         </div>
-        <div class="form-group">
-        
-        <input class="form-control " type="text" placeholder="System Architect">
+        @enderror
+      </div>
+      <div class="form-floating">
+        name
+        <input type="text" name="name" class="form-control @error('name') 
+        is-invalid @enderror" id="floatingInput"
+        value="{{ old('name') }}">
+        @error('name')
+        <div class="invalid-feedback">
+          {{ $message }}
         </div>
-        <div class="form-group">
-        
-        
-      <input class="form-control " type="text" placeholder="Edinburgh">
-        
+        @enderror
+      </div>
+      <div class="form-floating">
+        Description
+        <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" id="floatingPassword" placeholder="Password"
+        value="{{ old('description') }}">
+        @error('description')
+        <div class="invalid-feedback">
+          {{ $message }}
         </div>
+        @enderror
       </div>
-          <div class="modal-footer ">
-        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
-      </div>
+      <div class="form-floating">
+        price
+        <input type="text" name="price" class="form-control @error('price') 
+        is-invalid @enderror" id="floatingInput" placeholder="name@example.com"
+        value="{{ old('price') }}">
+        @error('price')
+        <div class="invalid-feedback">
+          {{ $message }}
         </div>
-    <!-- /.modal-content --> 
-  </div>
-      <!-- /.modal-dialog --> 
-    </div>
-    
-    
-    
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-      <div class="modal-dialog">
-    <div class="modal-content">
-          <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+        @enderror
       </div>
-          <div class="modal-body">
-       
-       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
-       
-      </div>
-        <div class="modal-footer ">
-        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
-      </div>
+      <div class="form-floating">
+        stock
+        <input type="text" name="stock" class="form-control @error('stock') 
+        is-invalid @enderror" id="floatingInput" placeholder="name@example.com"
+        value="{{ old('stock') }}">
+        @error('stock')
+        <div class="invalid-feedback">
+          {{ $message }}
         </div>
-    <!-- /.modal-content --> 
-  </div>
-      <!-- /.modal-dialog --> 
-    </div>
-    </body>
+        @enderror
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Add item</button>
+    </form>
 @endsection

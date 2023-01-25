@@ -14,7 +14,7 @@
       <form action="/login" method="post">
         @csrf
         <div class="form-floating">
-          email
+          Email
           <input type="email" name="email" 
           class="form-control @error('email') is-invalid @enderror" id="floatingInput" placeholder="name@example.com"
           value="{{ old('email') }}">
