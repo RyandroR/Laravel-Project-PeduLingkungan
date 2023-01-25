@@ -3,12 +3,13 @@
 @section('container')
     <div class="py-5">
         <div class="container">
+            <h1>{{ auth()->user()->points }}</h1>
             <div class="row">
                 @foreach ($items as $item)
                 <div class="col-md-3">
 
                         <div class="card">
-                            <img width="200px" height="200px" src="{{ asset('storage/app/' . $item->image) }}" alt="">
+                            <img width="200px" height="200px" src="{{ asset('storage/' . $item->image) }}" alt="">
                             <div class="card-body">
                                 <h5 name="name">{{ $item->name }}</h5>
                                 <p class="h6" name="description">{{ $item->description }}</p>
